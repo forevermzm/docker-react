@@ -3,22 +3,6 @@ services:
   react-app:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     ports:
-      # Map local port 3000 to container's port 3000
-      - "3000:3000"
-    volumes:
-      # Ask docker to keep this file without mapping local to it
-      - /app/node_modules
-      # Map everything from current directory to /app in container
-      - .:/app
-  tests:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    volumes:
-      # Ask docker to keep this file without mapping local to it
-      - /app/node_modules
-      # Map everything from current directory to /app in container
-      - .:/app
-    command: ["npm", "run", "test"]
+      - "80:80"
